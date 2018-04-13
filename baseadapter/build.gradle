@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.tsutsuku'
 android {
     compileSdkVersion 26
 
@@ -22,29 +23,14 @@ android {
 
 }
 
-bintray {
-    user = 'tsutsuku'
-    key = '64e63dba2a3f77d436a68304fbcf573d1cff2f34'
-    pkg {
-        repo = "maven"
-        name = "baseAdapter" //发布到JCenter上的项目名字
-        licenses = ["Apache-2.0"]
-        publish = true
-        version {
-            name = "1.0.0"
-            desc = 'First init'
-            released = new Date()
-
-        }
-    }
-}
-
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    implementation 'com.jakewharton:butterknife:9.0.0-SNAPSHOT'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-SNAPSHOT'
 }
